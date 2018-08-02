@@ -125,15 +125,16 @@ if (j % 3 == 0) {
 let k: string = 'Apple';
 console.log(k + k + k + k);
 
-// Surface Area: 600 térfogat
-// Volume: 1000 terület
+// Surface Area: 600 terület
+// Volume: 1000 felszín
 
 let cuboid1: number = 10;
 let cuboid2: number = 10;
 let cuboid3: number = 10;
-let cubSurfaceArea: number = 6;
 console.log( cuboid1 * cuboid2 * cuboid3);
-console.log( cuboid1 * cuboid2 * cubSurfaceArea);
+console.log( cuboid1 * cuboid2 * 2 + cuboid1 * cuboid3 * 2 + cuboid2 * cuboid3 * 2); //felszin képlet
+// terület és térfogat számítás bármilyen kockával
+
 
 
 
@@ -148,11 +149,68 @@ let currentminutesmp: number = currentMinutes * 60;
 
 let currenthoursmp: number = currentHours * 3600;
 
-let RemainingSec: number = currenthoursmp + currentminutesmp + currentSeconds;
+let RemainingSec: number = 86400 - (currenthoursmp + currentminutesmp + currentSeconds);
 console.log(RemainingSec);
+
+
 
 let a123: number = 24;
 let out: number = 0;
 
-// if a is even increment out by one make at home 
+// if a123 is even increment out by one
+while (out <= a123){
+    console.log(out);
+    out++;
+}
+
+
+let b123: number = 13;
+let out2: string = '';
+
+if (b123 > 10 && b123 < 20) {
+    out2 = "Sweet!";
+} else if (b123 < 10) {
+    out2 = "Less!";
+} else if (b123 > 20) {
+    out2 = "More!";
+} console.log(out2);
+
+let c123: number = 123;
+let credits: number = 100;
+let isBonus: boolean = false;
+
+// if credits are at least 50,
+// and is_bonus is false decrement c123 by 2
+// if credits are smaller than 50,
+// and is_bonus is false decrement c by 1
+// if is_bonus is true c should remain the same
+
+if (c123 >= 50 && !isBonus) { //!-jel ellentét!!! tehát fals
+    c123 = c123 - 2;
+} else if (c123 < 50 && !isBonus) {
+    c123 = c123 - 1;
+} else if (isBonus) {
+    c123 = c123;
+}console.log(c123);
+
+let d123: number =  8;
+let time: number = 120;
+let out3: string = '';
+
+// if d is dividable by 4
+// and time is not more than 200
+// set out3 to "check"
+// if time is more than 200
+// set out3 to "Time out"
+// otherwise set out3 to "Run Forest Run!"
+
+if (d123 % 4 ==0 && time < 200) {
+    out3 = "check";
+} else if (time > 200) {
+    out3 = "time out";
+} else {
+    out3 = "run Forest run!";
+}
+console.log(out3);
+
 

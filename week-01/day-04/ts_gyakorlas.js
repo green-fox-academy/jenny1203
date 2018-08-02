@@ -110,8 +110,61 @@ var currentSeconds = 42;
 // day if the current time is represented by these variables
 var currentminutesmp = currentMinutes * 60;
 var currenthoursmp = currentHours * 3600;
-var RemainingSec = currenthoursmp + currentminutesmp + currentSeconds;
+var RemainingSec = 86400 - (currenthoursmp + currentminutesmp + currentSeconds);
 console.log(RemainingSec);
 var a123 = 24;
 var out = 0;
-// if a is even increment out by one make at home 
+// if a123 is even increment out by one
+while (out <= a123) {
+    console.log(out);
+    out++;
+}
+var b123 = 13;
+var out2 = '';
+if (b123 > 10 && b123 < 20) {
+    out2 = "Sweet!";
+}
+else if (b123 < 10) {
+    out2 = "Less!";
+}
+else if (b123 > 20) {
+    out2 = "More!";
+}
+console.log(out2);
+var c123 = 123;
+var credits = 100;
+var isBonus = false;
+// if credits are at least 50,
+// and is_bonus is false decrement c123 by 2
+// if credits are smaller than 50,
+// and is_bonus is false decrement c by 1
+// if is_bonus is true c should remain the same
+if (c123 >= 50 && !isBonus) { //!-jel ellentét!!! tehát fals
+    c123 = c123 - 2;
+}
+else if (c123 < 50 && !isBonus) {
+    c123 = c123 - 1;
+}
+else if (isBonus) {
+    c123 = c123;
+}
+console.log(c123);
+var d123 = 8;
+var time = 120;
+var out3 = '';
+// if d is dividable by 4
+// and time is not more than 200
+// set out3 to "check"
+// if time is more than 200
+// set out3 to "Time out"
+// otherwise set out3 to "Run Forest Run!"
+if (d123 % 4 == 0 && time < 200) {
+    out3 = "check";
+}
+else if (time > 200) {
+    out3 = "time out";
+}
+else {
+    out3 = "run Forest run!";
+}
+console.log(out3);
