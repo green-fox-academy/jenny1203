@@ -8,7 +8,7 @@ console.log('Hello Gergő!');
 console.log('Hello Kamilla!');
 var nevem = 'Jenny';
 console.log(nevem);
-var age = 21;
+var age = 22;
 console.log(age);
 var height = 1.72;
 console.log(height);
@@ -95,14 +95,14 @@ else if (h % 5 == 0) {
 }
 var k = 'Apple';
 console.log(k + k + k + k);
-// Surface Area: 600 térfogat
-// Volume: 1000 terület
+// Surface Area: 600
+// Volume: 1000
 var cuboid1 = 10;
 var cuboid2 = 10;
 var cuboid3 = 10;
-var cubSurfaceArea = 6;
 console.log(cuboid1 * cuboid2 * cuboid3);
-console.log(cuboid1 * cuboid2 * cubSurfaceArea);
+console.log(cuboid1 * cuboid2 * 2 + cuboid1 * cuboid3 * 2 + cuboid2 * cuboid3 * 2);
+// terület és térfogat számítás bármilyen kockával
 var currentHours = 14;
 var currentMinutes = 34;
 var currentSeconds = 42;

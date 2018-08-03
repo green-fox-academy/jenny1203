@@ -12,14 +12,14 @@ console.log('Hello Kamilla!');
 let nevem: string = 'Jenny';
 console.log(nevem);
 
-let age: number = 21;
+let age: number = 22;
 console.log(age);
 
 let height: number = 1.72;
 console.log(height);
 
 let code: number = 6;
-let semester:number = 17;
+let semester: number = 17;
 let hours: number = code * semester;
 console.log(hours);
 let workdays: number = 5;
@@ -78,16 +78,16 @@ console.log(d);
 
 let e: number = 8;
 
-console.log(e**3);
+console.log(e ** 3);
 
 
 let f1: number = 123;
 let f2: number = 345;
 
 
-if (f1 > f2){
+if (f1 > f2) {
     console.log('f1 is bigger than f2.')
-}else {
+} else {
     console.log('f1 is smaller than f2.')
 };
 
@@ -102,7 +102,7 @@ if (g3 > g2) {
 
 let h: number = 1357988018575474;
 let jedi: boolean = true;
-if ( h % 11 == 0) {
+if (h % 11 == 0) {
     console.log('jeeej');
 } else {
     console.log('not jeeej');
@@ -125,40 +125,11 @@ if (j % 3 == 0) {
 let k: string = 'Apple';
 console.log(k + k + k + k);
 
-// Surface Area: 600 terület
-// Volume: 1000 felszín
-
-let cuboid1: number = 10;
-let cuboid2: number = 10;
-let cuboid3: number = 10;
-console.log( cuboid1 * cuboid2 * cuboid3);
-console.log( cuboid1 * cuboid2 * 2 + cuboid1 * cuboid3 * 2 + cuboid2 * cuboid3 * 2); //felszin képlet
-// terület és térfogat számítás bármilyen kockával
-
-
-
-
-let currentHours: number = 14;
-let currentMinutes: number = 34;
-let currentSeconds: number = 42;
-
-// Write a program that prints the remaining seconds (as an integer) from a
-// day if the current time is represented by these variables
-
-let currentminutesmp: number = currentMinutes * 60;
-
-let currenthoursmp: number = currentHours * 3600;
-
-let RemainingSec: number = 86400 - (currenthoursmp + currentminutesmp + currentSeconds);
-console.log(RemainingSec);
-
-
-
 let a123: number = 24;
 let out: number = 0;
 
 // if a123 is even increment out by one
-while (out <= a123){
+while (out <= a123) {
     console.log(out);
     out++;
 }
@@ -174,43 +145,3 @@ if (b123 > 10 && b123 < 20) {
 } else if (b123 > 20) {
     out2 = "More!";
 } console.log(out2);
-
-let c123: number = 123;
-let credits: number = 100;
-let isBonus: boolean = false;
-
-// if credits are at least 50,
-// and is_bonus is false decrement c123 by 2
-// if credits are smaller than 50,
-// and is_bonus is false decrement c by 1
-// if is_bonus is true c should remain the same
-
-if (c123 >= 50 && !isBonus) { //!-jel ellentét!!! tehát fals
-    c123 = c123 - 2;
-} else if (c123 < 50 && !isBonus) {
-    c123 = c123 - 1;
-} else if (isBonus) {
-    c123 = c123;
-}console.log(c123);
-
-let d123: number =  8;
-let time: number = 120;
-let out3: string = '';
-
-// if d is dividable by 4
-// and time is not more than 200
-// set out3 to "check"
-// if time is more than 200
-// set out3 to "Time out"
-// otherwise set out3 to "Run Forest Run!"
-
-if (d123 % 4 ==0 && time < 200) {
-    out3 = "check";
-} else if (time > 200) {
-    out3 = "time out";
-} else {
-    out3 = "run Forest run!";
-}
-console.log(out3);
-
-
