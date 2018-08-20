@@ -12,12 +12,21 @@ const queue: any[] = [
   { name: 'Joerg', alcohol: 20, guns: 0 }
 ];
 
-function enterToFestival(quene: any[]){
-    if(){
-
-    }else if(){
-
-    }else{
-
-    }
+function securityCheck(queue: any[]){
+    let withoutGun: any[] = [];
+    queue.forEach(element => {
+        if(element['guns'] > 0){
+           watchlist.push(element['name']);
+           element['guns'] = 0;
+        }else{
+            withoutGun.push(element['name']);
+        }
+        if(element['alcohol'] > 0){
+            securityAlcoholLoot += (element['alcohol']);
+            element['alcohol'] = 0;
+        }
+    });return withoutGun;
 }
+
+console.log("Go in: " + securityCheck(queue));
+console.log("Had gun: " + watchlist);
