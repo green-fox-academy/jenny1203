@@ -3,9 +3,8 @@ const accounts: any[] = [
   { clientName: 'Vladimir', accountNumber: 43546731, balance: 5204100071.23 },
   { clientName: 'Sergei', accountNumber: 23456311, balance: 1353600.0 }
 ];
-// Create function that returns the name and balance of cash on an account in a list
-// getNameAndBalance(11234543);
-// should return: ['Igor', 203004099.2]
+
+// név és balance kiírása
 function getNameAndBalance(accountNumber){
     let name: string[] = [];
     for(let index = 0; index < accounts.length; index++){
@@ -16,22 +15,37 @@ function getNameAndBalance(accountNumber){
     }return name;
 }
 
-function checkAccounts(toAccountNumber, fromAccountNumber): boolean{
-        array.forEach(element => {
-            if (element['accountNumber'] === toAccountNumber){
-
-            }
-        });
+// rávizsgál, hogy a from és a to létezik-e
+function checkAccounts(accounts, toAccountNumber, fromAccountNumber): boolean{
+    let foundToAccount: boolean = false;
+    let foundFromAccount: boolean = false;
+    accounts.forEach(element => {
+        if (element['accountNumber'] === toAccountNumber){
+            foundToAccount = true;
+        }
+        if (element['accountNumber'] === fromAccountNumber){
+            foundFromAccount = true;
+        }
+    });
+    return foundToAccount && foundFromAccount;
 }
 
-function transferCash(accounts, toAccountNumber, fromAccountNumber, transferCash){
-    for(let index = 0; index < accounts.length; index++){
-        if(accounts[index]['accountNumber'] === toAccountNumber){
-            accounts[index]['balance'] = accounts[index]['balance'] + transferCash;
-        }else if(accounts[index]['accountNumber'] === fromAccountNumber){
-            accounts[index]['balance'] = accounts[index]['balance'] - transferCash;
+// ha a to és a from létezik utalja az összeget
+function transferCash(accounts, toAccountNumber, fromAccountNumber, transferCash):string{
+    let correctAccounts = checkAccounts(accounts, toAccountNumber, fromAccountNumber);
+    if(correctAccounts){
+        for(let index = 0; index < accounts.length; index++){
+            if(accounts[index]['accountNumber'] === toAccountNumber){
+                accounts[index]['balance'] = accounts[index]['balance'] + transferCash;
+            }else if(accounts[index]['accountNumber'] === fromAccountNumber){
+                accounts[index]['balance'] = accounts[index]['balance'] - transferCash;
+            }return "transaction succes.";
         }
+    }else{
+        return "404 - account not found";
     }
     
 }
+console.log(getNameAndBalance(11234543));
+console.log(transferCash(accounts, 11234543, 43546731, 100));
 console.log(getNameAndBalance(11234543));
