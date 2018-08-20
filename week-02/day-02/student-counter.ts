@@ -14,24 +14,19 @@ const students: any[] = [
 // create a function that takes a list of students and logs:
 // - Sum of the age of people who have lass than 5 candies
 
-function listOfCandi(objects: object[]) {
-    let sum: number = 0;
-    objects.forEach(function (elem) {
-        sum += elem['candies']
-    }); return sum;
-
+function sumCandies(any: object[]){
+    let studentCandies: number = 0;
+    for(let index = 0; index < any.length; index++){
+        studentCandies = studentCandies + any[index]['candies'];
+    }return studentCandies;
 }
-
-function lessThanCandi(objects: object[]) {
-    let age: number = 0;
-    objects.forEach(function (elem) {
-        if (elem['candies'] < 5) {
-            age += elem['age'];
+function sumAge(any: object[]){
+    let studentAge: number = 0;
+    for(let index = 0; index < any.length; index++){
+        if( any[index]['candies'] < 5){
+            studentAge = studentAge + any[index]['age'];
         }
-    }); return age;
+    }return studentAge;
 }
-
-console.log(lessThanCandi(students));
-
-console.log(listOfCandi(students));
-
+console.log(sumCandies(students));
+console.log(sumAge(students));
