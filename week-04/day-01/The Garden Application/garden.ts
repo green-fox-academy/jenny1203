@@ -10,4 +10,5 @@ class garden {
         this.purpleTree = purpleTree;
         this.orangeTree = orangeTree;
     }
+    
 }
