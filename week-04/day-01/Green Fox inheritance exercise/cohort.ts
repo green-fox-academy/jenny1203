@@ -1,7 +1,5 @@
 'use strict'
 
-//import {Person} from './person';
-
 class Cohort {
     name: string;
     students: string[];
