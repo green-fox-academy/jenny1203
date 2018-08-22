@@ -1,9 +1,13 @@
 export abstract class Instrument {
     protected name: string;
+    private instruments: Instrument[];
 
     constructor(name: string){
         this.name = name;
+        this.instruments = [];
     }
-
-    play(){}
+    addInstrument(instrument: Instrument) {
+        this.instruments.push(instrument);
+    }
+    play(): void {};
 }
