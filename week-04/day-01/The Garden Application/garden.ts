@@ -1,14 +1,16 @@
 class garden {
-    protected yellowFlower: string;
-    protected blueFlower: string;
-    protected purpleTree: string;
-    protected orangeTree: string;
+    protected Flower: string[];
+    protected Tree: string[];
 
-    constructor(yellowFlower, blueFlower, purpleTree, orangeTree){
-        this.yellowFlower = yellowFlower;
-        this.blueFlower = blueFlower;
-        this.purpleTree = purpleTree;
-        this.orangeTree = orangeTree;
+    constructor(){
+        this.Flower = [];
+        this.Tree = [];
+    }
+    addflower(Flower){
+        this.Flower.push(Flower);
+    }
+    addTree(Tree){
+        this.Tree.push(Tree);
     }
     
 }
