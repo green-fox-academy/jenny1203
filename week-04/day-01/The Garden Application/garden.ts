@@ -31,6 +31,7 @@ export class garden {
                 element.watering(dividedAmount);
             }
         });
+        
         this.trees.forEach(element => {
             if(element.needsWater){
                 element.watering(dividedAmount);
