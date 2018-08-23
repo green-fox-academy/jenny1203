@@ -1,18 +1,27 @@
 import { garden } from "./garden";
 
 export class flower {
-    color: 'string';
+    color: string;
     waterAmount: number;
     needsWater: boolean;
 
-    constructor(color, needsWater, waterAmount){
+    constructor(color: string, waterAmount: number){
         this.color = color;
-        this.needsWater = waterAmount < 5;
         this.waterAmount = waterAmount;
+        this.needsWater = this.waterAmount < 5;
 
     }
 
-    watering(thirstyPlants: number){
-        this.waterAmount = this.waterAmount + thirstyPlants * 0,4;
+    watering(amount: number){
+        this.waterAmount = this.waterAmount + amount * 0.75;
+        this.needsWater = this.waterAmount < 5;
+    }
+
+    log(){
+        if(this.needsWater){
+                console.log(`The ${this.color} Flower needs water!`);
+            }else{
+                console.log(`The ${this.color} Flower doesn't need water!`);
+            }
     }
 }
