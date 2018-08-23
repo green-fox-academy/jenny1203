@@ -48,6 +48,7 @@ export class garden {
     }
 
 }
+
 let flowers : flower[] = [];
 let trees: tree[] = [];
 
