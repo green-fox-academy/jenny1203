@@ -1,4 +1,3 @@
 # jenny1203
 
-Todo App Link:
-https://github.com/jenny1203/todo-app
+[Az én Todo Appom](https://github.com/jenny1203/todo-app)
