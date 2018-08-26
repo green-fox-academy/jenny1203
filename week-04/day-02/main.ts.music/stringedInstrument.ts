@@ -1,12 +1,15 @@
-import { Instrument } from "./instrument";
+import { instrument} from './instrument';
+export abstract class StringedInstrument extends instrument {
+  numberOfStrings: number;
 
-export abstract class StringedInstrument extends Instrument {
-    numberOfStrings: number;
+  constructor(numberOfStrings: number) {
+    super();
+    this.numberOfStrings = numberOfStrings;
+  }
 
-    constructor(numberOfStrings: number){
-        super(name);
-        this.numberOfStrings = numberOfStrings;
-    }
+  abstract sound() :void;
 
-    sound() {}
+  play(){
+    this.sound();
+  }
 }

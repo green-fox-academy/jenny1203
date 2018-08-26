@@ -1,13 +1,7 @@
-export abstract class Instrument {
-    protected name: string;
-    private instruments: Instrument[];
+export abstract class instrument {
+  protected name: string;
+  constructor(){
 
-    constructor(name: string){
-        this.name = name;
-        this.instruments = [];
-    }
-    addInstrument(instrument: Instrument) {
-        this.instruments.push(instrument);
-    }
-    play(): void {};
+  }
+  abstract play() :void;
 }
