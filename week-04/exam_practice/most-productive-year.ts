@@ -35,11 +35,6 @@ function findMostProductiveYear(studioName: string) {
   }
 }
 
-if (process.argv[2] === 'writeDoc') {
-  findMostProductiveYear('marvel.txt');
-
-}
-
 function modusz(date) {
   let maxValue: string = '';
   let maxCount: number = 0;
@@ -62,7 +57,4 @@ function modusz(date) {
 
 console.log(findMostProductiveYear('marvel.txt'));
 console.log(findMostProductiveYear('paramount.txt'));
-/********************************
- * Do not modify the code below *
- ********************************/
 export default findMostProductiveYear;
