@@ -31,8 +31,8 @@ export class garden {
     this.trees.push(newTree);
   }
 
-  statusInfo(){
-    this.flowers.forEach( flowerStat => flowerStat.log());
-    this.trees.forEach( treeStat => treeStat.log());
+  statusInfo() {
+    this.flowers.forEach(flowerStat => flowerStat.log());
+    this.trees.forEach(treeStat => treeStat.log());
   }
 }
