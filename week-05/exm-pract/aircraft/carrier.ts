@@ -12,4 +12,8 @@ class Carrier {
   add(ammo, baseDamage, maxAmmo, type, allDamage){
     this.aircrafts.push(new Aircraft(ammo, baseDamage, maxAmmo, type, allDamage));
   }
+
+  fill(ammo){
+    
+  }
 }
