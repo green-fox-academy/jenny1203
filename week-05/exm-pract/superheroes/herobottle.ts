@@ -50,16 +50,15 @@ import { Hero } from './hero';
  *  Do not modify the code below except for test purpose *
  *********************************************************/
 const heroes: BaseHero[] = [
-  new Hero('Hulk', 55),
-  new Hero('Iron man', 35),
-  new Hero('Daredevil'),
-  new Hero('Batman', 60),
-  new Hero('Superman', 25),
-  new Hero('Wonder woman'),
+  new MarvelHero('Hulk', 55),
+  new MarvelHero('Iron man', 35),
+  new MarvelHero('Daredevil'),
+  new DCHero('Batman', 60),
+  new DCHero('Superman', 25),
+  new DCHero('Wonder woman'),
 ];
-console.log(heroes);
 
-/*while(heroes.filter((hero: BaseHero) => hero.getMotivationLevel() > 0).length > 1) {
+while(heroes.filter((hero: BaseHero) => hero.getMotivationLevel() > 0).length > 1) {
   heroes.forEach((hero: BaseHero) => {
     heroes
       .filter((otherHero: Hero) => hero !== otherHero)
@@ -67,4 +66,4 @@ console.log(heroes);
   }); 
 }
 
-heroes.forEach((hero: Hero) => console.log(hero.toString()));*/
+heroes.forEach((hero: Hero) => console.log(hero.toString()));

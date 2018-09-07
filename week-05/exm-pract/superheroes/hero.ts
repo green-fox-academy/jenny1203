@@ -2,15 +2,15 @@ import Punchable from "./punchable";
 import BaseHero from "./basehero";
 
 export class Hero extends BaseHero implements Punchable {
-  motivation?: number;
+  motivation: number;
 
-  constructor(name, motivation) {
+  constructor(name: string, motivation: number = 0) {
     super(name);
     this.motivation = motivation;
 
   }
 
-  getMotivationLevel(): number {
+  public getMotivationLevel(): number {
     if (this.motivation < 25) {
       return 0;
     } else if (this.motivation >= 25 && this.motivation <= 40) {
@@ -19,17 +19,11 @@ export class Hero extends BaseHero implements Punchable {
       return 2;
     }
   }
-  /*punch: take damage on the other hero by using his/her bePunched function with a force
-   *    - damage = the puncher hero's motivation / 1.5
-   *    - the hero punches other heroes only if his/her motivation level is at least 1
-   * */
 
-
-  punch(other: Hero) {
+  punch(other: Hero): void {
+    let demage = this.motivation / 1.5;
     if (this.motivation >= 1) {
-      other.bePunched(10);
-      let demage = this.motivation / 1.5;
-      return this.motivation = demage;
+      other.bePunched(demage);
     }
   }
 
@@ -37,18 +31,13 @@ export class Hero extends BaseHero implements Punchable {
     this.motivation = this.motivation - (damage / this.motivation);
   }
 
-  /*toString: returns a string status report about the hero
- *      - if the hero's motivation level is 0: {name} is not motivated anymore.
- *      - if the hero's motivation level is 1: {name} is motivated.
- *      - if the hero's motivation level is 2: {name} is well motivated.*/
-
   toString() {
-    if (this.motivation === 0) {
-      return `${name} is not motivated anymore.`;
-    } else if (this.motivation === 1) {
-      return `${name} is motivated.`;
-    } else if (this.motivation === 2) {
-      return `${name} is well motivated.`;
+    if (this.getMotivationLevel() === 0) {
+      return this.getName() + ' is not motivated anymore.';
+    } else if (this.getMotivationLevel() === 1) {
+      return this.getName() + ' is motivated.';
+    } else if (this.getMotivationLevel() === 2) {
+      return this.getName() + ' is well motivated.';
     }
   }
 }
