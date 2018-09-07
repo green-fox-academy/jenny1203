@@ -11,7 +11,7 @@ export default abstract class BaseHero {
   public abstract punch(other: Punchable): void
 
   public abstract getMotivationLevel(): number
-  
+
   public abstract toString(): string
 
   public getName(): string {

@@ -42,9 +42,9 @@
 import BaseHero from './basehero';
 import Punchable from './punchable';
 import { Hero } from './hero';
+import { MarvelHero } from './marvelhero';
+import { DCHero } from './dchero';
 // add here your imports
-
-
 
 /*********************************************************
  *  Do not modify the code below except for test purpose *
@@ -58,12 +58,12 @@ const heroes: BaseHero[] = [
   new DCHero('Wonder woman'),
 ];
 
-while(heroes.filter((hero: BaseHero) => hero.getMotivationLevel() > 0).length > 1) {
+while (heroes.filter((hero: BaseHero) => hero.getMotivationLevel() > 0).length > 1) {
   heroes.forEach((hero: BaseHero) => {
     heroes
       .filter((otherHero: Hero) => hero !== otherHero)
       .forEach((otherHero: Hero) => hero.punch(otherHero as Punchable));
-  }); 
+  });
 }
 
 heroes.forEach((hero: Hero) => console.log(hero.toString()));

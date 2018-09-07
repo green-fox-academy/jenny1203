@@ -4,7 +4,7 @@ import BaseHero from "./basehero";
 export class Hero extends BaseHero implements Punchable {
   motivation: number;
 
-  constructor(name: string, motivation: number = 0) {
+  constructor(name: string, motivation: number) {
     super(name);
     this.motivation = motivation;
 
