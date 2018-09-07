@@ -2,11 +2,15 @@ class Aircraft {
   ammo: number;
   baseDamage: number;
   maxAmmo: number;
+  type: string;
+  allDamage: number;
 
-  constructor(ammo: number = 0, baseDamage: number, maxAmmo: number) {
+  constructor(ammo: number = 0, baseDamage: number, maxAmmo: number, type: string, allDamage: number) {
     this.ammo = ammo;
     this.baseDamage = baseDamage;
     this.maxAmmo = maxAmmo;
+    this.type = type;
+    this.allDamage = allDamage;
   }
 
   fight(damage): number {
@@ -31,5 +35,17 @@ class Aircraft {
     }
   }
 
+  getType(){
+    return this.type;
+  }
   
+  //    Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
+
+  getStatus(): string{
+    return `Type ${this.type}, Ammo: ${this.ammo}, Base Damage: ${this.baseDamage}, All Damage: ${this.allDamage} `;
+  }
+
+  isPriority(){
+    
+  }
 }

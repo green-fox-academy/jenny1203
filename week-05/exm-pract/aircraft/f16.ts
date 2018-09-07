@@ -1,6 +1,6 @@
 class F16 extends Aircraft {
 
-  constructor(ammo: number, baseDamage: number, maxAmmo: number){
-    super(ammo, baseDamage, maxAmmo);
+  constructor(){
+    super(0, 30, 8, 'F16', 0);
   }
 }
