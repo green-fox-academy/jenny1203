@@ -64,7 +64,6 @@ export class Bookshelf {
 
   earliestBook(): Book {
     return this.findByYear(Math.min(...this.yearOfBooks()));
-
   }
 
   latestBook(): Book {
