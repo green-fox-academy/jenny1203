@@ -26,26 +26,28 @@ class Aircraft {
       return returnValue;
     } else if (addAmmo < this.maxAmmo) {
       this.ammo = this.ammo + addAmmo;
-        if (this.ammo > this.maxAmmo) {
-          let returnValue = this.ammo - this.maxAmmo;
-          this.ammo = this.maxAmmo;
-          return returnValue;
-        }
+      if (this.ammo > this.maxAmmo) {
+        let returnValue = this.ammo - this.maxAmmo;
+        this.ammo = this.maxAmmo;
+        return returnValue;
+      }
       return 0;
     }
   }
 
-  getType(){
+  getType() {
     return this.type;
   }
-  
-  //    Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
 
-  getStatus(): string{
+  getStatus(): string {
     return `Type ${this.type}, Ammo: ${this.ammo}, Base Damage: ${this.baseDamage}, All Damage: ${this.allDamage} `;
   }
 
-  isPriority(){
-    
+  isPriority() {
+    if (this.type === 'F35') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
