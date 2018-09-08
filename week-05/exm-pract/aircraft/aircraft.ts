@@ -1,5 +1,5 @@
 export class Aircraft {
-  ammo: number;
+  public ammo: number;
   baseDamage: number;
   maxAmmo: number;
   type: string;
