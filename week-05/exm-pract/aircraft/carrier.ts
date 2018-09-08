@@ -37,4 +37,13 @@ class Carrier {
       'Ammo storage is empty.';
     }  
   }
+
+  fight(other: Carrier){
+    let counter: number = 0;
+    for(let index = 0; index < this.aircrafts.length; index++){
+      counter += this.aircrafts[index].ammo;
+      this.aircrafts[index].ammo = 0;
+    }
+    other.healthPoint - counter;
+  }
 }
