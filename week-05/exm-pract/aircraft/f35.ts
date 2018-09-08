@@ -1,3 +1,5 @@
+import { Aircraft } from "./aircraft";
+
 class F35 extends Aircraft {
 
   constructor(){
