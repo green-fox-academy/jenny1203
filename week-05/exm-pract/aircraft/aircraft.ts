@@ -4,7 +4,7 @@ export class Aircraft {
   maxAmmo: number;
   type: string;
   allDamage: number;
-  needsAmmo: boolean;
+
 
   constructor(ammo: number = 0, baseDamage: number, maxAmmo: number, type: string, allDamage: number) {
     this.ammo = ammo;
@@ -12,7 +12,7 @@ export class Aircraft {
     this.maxAmmo = maxAmmo;
     this.type = type;
     this.allDamage = allDamage;
-    this.needsAmmo = this.ammo < this.maxAmmo;
+
   }
 
   fight(damage): number {
