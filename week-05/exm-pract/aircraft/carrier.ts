@@ -41,13 +41,6 @@ export class Carrier {
     }
     other.healthPoint - counter;
   }
-  /*HP: 5000, Aircraft count: 4, Ammo Storage: 2300, Total damage: 2280
-  Aircrafts:
-  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-  Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
-  Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
-  Type F16, Ammo: 8, Base Damage: 30, All Damage: 240*/
 
   getStatus() {
     let totalDamage: number = 0;
@@ -60,6 +53,6 @@ export class Carrier {
       totalDamage += this.aircrafts[index].allDamage;
       totalAmmo += this.aircrafts[index].ammo;
     } return 'HP: ' + this.healthPoint + ' Aircraft count: ' + this.aircrafts.length + ' Ammo Storage: '
-     + (this.ammoStorage - totalAmmo) + ' Total Damage: ' + totalDamage + '\n' + aircraftsStatus;
+      + (this.ammoStorage - totalAmmo) + ' Total Damage: ' + totalDamage + '\n' + aircraftsStatus;
   }
 }
