@@ -1,6 +1,6 @@
 import { Aircraft } from "./aircraft";
 
-class Carrier {
+export class Carrier {
   aircrafts: Aircraft[];
   ammoStorage: number;
   healthPoint: number;
@@ -11,26 +11,21 @@ class Carrier {
     this.aircrafts = [];
   }
 
-  add(ammo, baseDamage, maxAmmo, type, allDamage) {
-    this.aircrafts.push(new Aircraft(ammo, baseDamage, maxAmmo, type, allDamage));
+  add(aircraft: Aircraft) {
+    this.aircrafts.push(aircraft);
   }
 
   fill() {
     if (this.ammoStorage != 0) {
+      let dividedAmount: number = this.ammoStorage / this.aircrafts.length;
       for (let index = 0; index < this.aircrafts.length; index++) {
-        if (this.aircrafts[index].isPriority() === true && this.ammoStorage != 0) {
-          let dividedAmount: number = this.ammoStorage / this.aircrafts.length;
-          this.aircrafts.forEach(element => {
-            element.refill(dividedAmount);
-          });
+        if (this.aircrafts[index].isPriority() && this.ammoStorage != 0) {
+          this.aircrafts[index].refill(dividedAmount)
         }
       }
       for (let index = 0; index < this.aircrafts.length; index++) {
         if (this.ammoStorage != 0) {
-          let dividedAmount: number = this.ammoStorage / this.aircrafts.length;
-          this.aircrafts.forEach(element => {
-            element.refill(dividedAmount);
-          });
+          this.aircrafts[index].refill(dividedAmount);
         }
       }
     } else {
@@ -55,8 +50,16 @@ class Carrier {
   Type F16, Ammo: 8, Base Damage: 30, All Damage: 240*/
 
   getStatus() {
+    let totalDamage: number = 0;
+    let totalAmmo: number = 0;
+    let aircraftsStatus: string = '';
     for (let index = 0; index < this.aircrafts.length; index++) {
-      return
-    }
+      aircraftsStatus += 'Type ' + this.aircrafts[index].getType() + ' Ammo: ' + this.aircrafts[index].ammo
+        + ' Base Damage: ' + this.aircrafts[index].baseDamage
+        + ' All Damage ' + this.aircrafts[index].allDamage + '\n';
+      totalDamage += this.aircrafts[index].allDamage;
+      totalAmmo += this.aircrafts[index].ammo;
+    } return 'HP: ' + this.healthPoint + ' Aircraft count: ' + this.aircrafts.length + ' Ammo Storage: '
+     + (this.ammoStorage - totalAmmo) + ' Total Damage: ' + totalDamage + '\n' + aircraftsStatus;
   }
 }
