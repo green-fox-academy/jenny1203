@@ -15,5 +15,4 @@ console.log(firstCarrier.getStatus());
 
 firstCarrier.fill();
 
-
 console.log(firstCarrier.getStatus());

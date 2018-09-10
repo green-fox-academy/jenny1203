@@ -1,9 +1,9 @@
 import { Bookshelf } from "./bookshelf";
 
 export class Book {
-  public author: string;
-  public title: string;
-  public releaseYear: number;
+  protected author: string;
+  protected title: string;
+  protected releaseYear: number;
 
   constructor(author, title, releaseYear) {
     this.author = author;
