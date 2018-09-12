@@ -10,6 +10,11 @@
   display: flex;
 }
 
+.flex-container3 {
+  display: flex;
+
+}
+
 .item {
   margin-top: 5%;
   height: 100px;
@@ -26,9 +31,32 @@
 
 .yellow2 {
   background-color: yellow;
-  width: 100%;
+  width: 200px;
 }
 
 .purple {
+  background-color: purple;
+}
+
+.flex-containerLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.itemLine {
+  margin-top: 5%;
+  height: 100px;
+  min-width: 100px;
+}
+
+.greenLine {
+  background-color: green;
+}
+
+.yellowLine {
+  background-color: yellow;
+}
+
+.purpleLine {
   background-color: purple;
 }
