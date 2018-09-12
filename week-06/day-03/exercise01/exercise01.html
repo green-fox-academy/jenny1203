@@ -15,10 +15,15 @@
   <div class="asteroid b329 big">The Lamplighter</div>
   <script>
     let theKing = document.getElementById('b325');
-    console.log(theKing);
+
     let businessLamp = document.getElementsByClassName('asteroid big');
-    console.log(businessLamp);
-    //let conceitedKing = document.ge
+
+
+    let theContaindedMan = document.getElementsByClassName('asteroid b326');
+    let conceitedKing = [theKing, theContaindedMan];
+    console.log(conceitedKing);
+    alert(conceitedKing[0].innerHTML);
+    alert(conceitedKing[1][0].innerHTML);
   </script>
 
   <!-- You can work in the html or in a separate js file. Like:
