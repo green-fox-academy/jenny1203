@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM: Accessing Elements</title>
+</head>
+<body>
+  <div id="b325" class="asteroid">The King</div>
+  <div class="asteroid b326">The Conceited Man</div>
+  <div class="asteroid b328">The Businessman</div>
+  <div class="asteroid b329">The Lamplighter</div>
+
+  <script>
+    'use strict';
+    let king = document.getElementById('b325'); //elem Id-t elmenti
+    console.log('king', king);
+    let lamplighter = document.querySelector('.b329'); //kilistázza a b329es classu elemet
+    console.log('lamplighter', lamplighter);
+    let asteroids = document.querySelectorAll('div.asteroid'); //változóba elmenti a div.asteroid elemet egy tömbbe
+    for (let i = 0; i < asteroids.length; i++) { //végig megy a tömbön
+      console.log(asteroids[i]); //kiírja az elemeket
+    }
+  </script>
+</body>
+</html>
