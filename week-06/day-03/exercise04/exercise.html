@@ -13,9 +13,22 @@
   <button>Click me!</button>
   <button class="this-one">Click me!</button>
   <script>
+
     let fox = document.querySelector('img');
     console.log('original image:', fox.getAttribute('src'));
-  //fox.setAttribute('src', 'http://deji.chez.com/dessins/pp1.gif');
+    fox.setAttribute('src', 'https://www.thehappycatsite.com/wp-content/uploads/2018/01/maine-coon-kitten-names.jpg');
+
+    let link = document.querySelector('a');
+    link.setAttribute('href', 'https://www.greenfoxacademy.com/');
+
+    let buttons = document.querySelectorAll('button'); //lekértük az összes buttont
+    let button = buttons[1]; // 2elemet változóba
+    let changeString = "Don't click me!";
+    button.disabled(true); //beállítás gomb letiltva
+    button.textContent.replace(changeString); //lekértük a text contentet és replace
+
+
+
   </script>
 
   <!-- You can work in the html or in a separate js file. Like:
