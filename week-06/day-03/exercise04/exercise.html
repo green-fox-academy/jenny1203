@@ -24,9 +24,8 @@
     let buttons = document.querySelectorAll('button'); //lekértük az összes buttont
     let button = buttons[1]; // 2elemet változóba
     let changeString = "Don't click me!";
-    button.disabled(true); //beállítás gomb letiltva
-    button.textContent.replace(changeString); //lekértük a text contentet és replace
-
+    button.disabled = true; //beállítás gomb letiltva
+    button.textContent = changeString; //új értéket adunk a tagek közé
 
 
   </script>
