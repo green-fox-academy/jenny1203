@@ -1,0 +1,27 @@
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+.titleContainer {
+  width: 100%;
+  left:0;
+  right:0;
+  bottom: 0;
+  height: 25%;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+.buttonDiv {
+  background-color: black;
+  width: 20%;
+  height: 50%;
+  
+}
