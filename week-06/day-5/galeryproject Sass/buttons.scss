@@ -1,0 +1,7 @@
+.leftButton {
+  @include fillButtonAttributes($buttonWidth, $buttonHeight, $buttonBorder, $WhiteColor);
+}
+
+.rightButton {
+  @include fillButtonAttributes($buttonWidth, $buttonHeight, $buttonBorder, $WhiteColor);
+}

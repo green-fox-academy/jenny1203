@@ -1,0 +1,13 @@
+@import 'tryout';
+
+$background: linear-gradient(-90deg, $hoverColor, $greyColor, $hoverColor);
+$boxShadow: 5px 5px 10px 5px $hoverColor;
+$buttonWidth: 50px;
+$buttonHeight: 400px;
+$buttonBorder: none;
+$SliderColor: rgba(0, 0, 0, 0.5);
+$smallPictureWidth: 100px;
+$smallPictureHeight: 50px;
+$smallPictureShadow: 0px 5px 7px 0px #000;
+$smallPictureRadio: 1px;
+$SmallImgBorder: 5px solid $WhiteColor;

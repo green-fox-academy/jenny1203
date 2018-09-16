@@ -1,0 +1,6 @@
+@mixin fillButtonAttributes($width, $height, $border, $background) {
+  width: $width;
+  height: $height;
+  border: $border;
+  background-color: $background;
+}
