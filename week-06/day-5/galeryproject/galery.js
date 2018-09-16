@@ -1,7 +1,8 @@
 let next = document.querySelector('.next');
 let prev = document.querySelector('.prev');
-let images = document.querySelectorAll('img');
+let images = document.querySelectorAll('.img');
 let paragraph = document.querySelector('p');
+let buttons = document.querySelectorAll('.move');
 
 next.onclick = nextClick;
 prev.onclick = prevClick;
