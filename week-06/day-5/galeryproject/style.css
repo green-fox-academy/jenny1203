@@ -1,27 +1,38 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+
 .hidden {
   display: none;
 }
 
 .visible {
-  display: block;
+  visibility: visible;
+}
+
+body {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#flex {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+}
+
+.rightDiv {
+  width:100px;
+	height:409px;
 }
 
 img {
-  width: 100%;
+  width: 800px;
+  height: 409px;
 }
 
-.titleContainer {
-  width: 100%;
-  left:0;
-  right:0;
-  bottom: 0;
-  height: 25%;
-  background-color: rgba(0,0,0, 0.8);
-}
-
-.buttonDiv {
-  background-color: black;
-  width: 20%;
-  height: 50%;
-  
+.leftDiv {
+  width:100px;
+	height:409px;
 }
