@@ -24,6 +24,15 @@ app.get('/', (req, res)=> {
   });
 });
 
+app.get('/id', (req, res) => {
+  for(let index = 0; index < cocktails.length; index++) {
+    cocktail =  reg.querry.cocktails[index];
+  }
+  res.render('home', {
+    coctail: cocktail,
+    id: id,
+   });
+})
 
 
 app.listen(port, () => {
