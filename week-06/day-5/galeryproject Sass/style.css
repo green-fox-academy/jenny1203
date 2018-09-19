@@ -8,17 +8,17 @@
 
 .visible { visibility: visible; }
 
-body { font-family: Arial, Helvetica, sans-serif; background-image: linear-gradient(-90deg, #b2aeae, #dedede, #b2aeae); }
+body { font-family: Arial, Helvetica, sans-serif; background-image: linear-gradient(-90deg, #939393, #dedede, #939393); }
 
 #container { position: relative; }
 
 .flex { display: flex; justify-content: center; margin-top: 50px; width: 900px; height: 400px; margin-left: auto; margin-right: auto; }
 
-.shadow { box-shadow: 5px 5px 10px 5px #b2aeae; }
+.shadow { box-shadow: 5px 5px 10px 5px #939393; }
 
 .img { width: 800px; height: 400px; }
 
-.fa:hover { cursor: pointer; color: #b2aeae; }
+.fa:hover { cursor: pointer; color: #939393; }
 
 .titleContainer { position: absolute; background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 800px; height: 100px; margin-top: 300px; }
 
