@@ -18,22 +18,16 @@ const cocktails = [
 const alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 
 app.get('/', (req, res)=> {
+  let alcoholType = '';
+  if(req.query.alcoholType) {
+    alcoholType = req.query.alcoholType;
+  } 
   res.render('home', {
-    alcoholList: alcoholList,
-    cocktails: cocktails,
+    alcoholType,
+    cocktails,
+    alcoholList
   });
 });
-
-app.get('/id', (req, res) => {
-  for(let index = 0; index < cocktails.length; index++) {
-    cocktail =  reg.querry.cocktails[index];
-  }
-  res.render('home', {
-    coctail: cocktail,
-    id: id,
-   });
-})
-
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

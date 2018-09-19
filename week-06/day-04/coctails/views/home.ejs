@@ -4,30 +4,44 @@
 <head>
   <meta charset="utf-8">
   <title>Coctails</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  <% alcoholList.forEach( elem => { %>
+  <a href='/?alcohol={alcholType}'><%= elem %></a>
+  <% }) %>
   <table>
-    <% for (let index = 0; index < alcoholList.length; index++) { %>
-    <tr> <%= alcoholList[index] %> </tr>
-    <% } %>
-  </table>
-  <table>
-        <% for (let index = 0; index < cocktails.length; index++) { %>
-          <tr>
-              <td>
-                <p><a href='/coctails'><%= cocktails[index].name %></a>
-                <% if (!cocktails[index].isAlcoholic) {%>
-                  (non-alcoholic)
-                  <% } %></p>  
-                <br/>
-                <%= cocktails[index].contains %>
-              </td>
-              <td>
-                  <%= cocktails[index].price %>
-              </td>
-          </tr>
-          <% } %>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% cocktails.forEach(elem => {
+       if (!alcoholType) { %>
+      <td>
+        <h1><%= elem.name %></h1>
+        <p><%= elem.contains.join(' ') %></p>
+        <% if (!elem.isAlcoholic) { %>
+        <p>(non-alcholic)</p>
+       <% } %>
+      </td>
+      <td>
+      <h1><%= elem.price %></h1>
+      </td>
+      <% } else if (elem.contains.includes(alcoholType)) { %>
+      <td>
+        <h1><%= elem.name %></h1>
+        <p><%= elem.contains.join(' ') %></p>
+      </td>
+      <td>
+      <h1><%= elem.price %></h1>
+      </td>
+      <% }
+      }); %>
+    </tbody>
   </table>
 </body>
 
