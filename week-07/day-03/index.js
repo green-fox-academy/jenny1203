@@ -20,19 +20,26 @@ conn.connect(function(err) {
   console.log('Connection established');
 });
 
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('./assets'));
+
 app.use(cors());
 //Create an API endpoint that lists all book names
-app.get('/', function(req, res) {
+app.get('/api/book', function(req, res) {
   conn.query('SELECT book_name FROM book_mast ;', function(err, rows) {
     if (err) {
       console.log(err.toString());
       res.satus(500).send('Database error');
       return;
     }
+    console.log('Cica');
     res.send(rows);
   });
 });
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, './assets/index.html'));
+  });
+
 
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`)
