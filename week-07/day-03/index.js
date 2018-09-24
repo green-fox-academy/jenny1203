@@ -21,7 +21,7 @@ conn.connect(function(err) {
 });
 
 app.use('/assets', express.static('./assets'));
-
+//statikus mappából a fileokat futtassa
 app.use(cors());
 //Create an API endpoint that lists all book names
 app.get('/api/book', function(req, res) {
