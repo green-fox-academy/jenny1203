@@ -3,7 +3,14 @@
   padding: 0px;
 }
 
+#container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
 button {
+  /*visibility: hidden;*/
   position: relative;
   padding: 0px;
   text-align: left;
@@ -24,6 +31,7 @@ div {
   padding: 12px;
 }
 
-fa-caret-right {
-  position: center;
+.fa-trash-alt:hover {
+  background-color: rgb(10, 70, 70);
+  visibility: visible;
 }
