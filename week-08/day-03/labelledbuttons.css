@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  position: relative;
+  padding: 0px;
+  text-align: left;
+  border: 0px;
+  background-color: tomato;
+  width: 200px;
+  height: 40px;
+}
+
+div {
+  background-color: black;
+  width: 40px;
+  height: 40px;
+}
+
+.fa-trash-alt {
+  color: #fff;
+  padding: 12px;
+}
+
+fa-caret-right {
+  position: center;
+}
