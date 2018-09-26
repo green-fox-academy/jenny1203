@@ -1,0 +1,27 @@
+body {
+  background-color: blue;
+  color: rgb(100, 68, 100);
+}
+
+table thead tr {
+  background-color: #000;
+  color: #fff;
+}
+
+table tbody tr:nth-child(odd){
+  background-color: #fafafa;
+}
+
+table tbody tr:nth-child(even){
+  background-color: #dedede;
+}
+
+table {
+  width: 500px;
+  height: 400px;
+  
+}
+
+table thead th{
+  height: 65,3px;
+}
