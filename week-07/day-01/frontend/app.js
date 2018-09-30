@@ -1,10 +1,9 @@
 const express = require('express');
-
 const app = express();
-
 const PORT = 8080;
-
 const path = require('path');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 app.use('/assets', express.static('assets'));
 
@@ -52,10 +51,40 @@ app.get('/greeter', (req, res) => {
 });
 
 app.get('/appenda/:appendable', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   let tryOut = {
     'appended': req.params.appendable + 'a'
   }
   res.send(JSON.stringify(tryOut));
+});
+
+app.post('/dountil/:action',jsonParser, (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  let until = parseInt(req.body.until); // bodyban az until
+  if(req.params.action === 'sum' && until !== undefined) {
+    let counter = 0;
+    for(let index = 1; index <= until; index++) {
+      counter += index;
+    }
+    let result = {
+      'result': counter
+    }
+    res.send(JSON.stringify(result));
+  } else if (req.params.action === 'factor' && until !== undefined) {
+    let counter2 = 1;
+    for(let index = 1; index <= until; index++) {
+      counter2 *= index;
+    }
+    let result2 = {
+      'result': counter2
+    }
+    res.send(JSON.stringify(result2));
+  } else {
+    let noRes = {
+      "error": "Please provide a number!"
+    }
+    res.send(JSON.stringify(noRes));
+  }
 });
 
 app.listen(PORT, () => {
