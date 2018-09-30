@@ -1,0 +1,41 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #dedede;
+  font-family: 'Nunito', sans-serif;
+}
+
+#container {
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  margin: 100px auto;
+}
+
+h2 {
+  font-weight: normal;
+  padding: 50px 0px 0px 50px;
+}
+
+button {
+  border-radius: 30px;
+  width: 100px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+}
+
+form {
+  margin-left: 70px;
+}
+
+
+input[type='text'],
+input[type='password'] {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 10px 20px 10px;
+}
