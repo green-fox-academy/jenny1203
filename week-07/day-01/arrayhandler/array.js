@@ -29,15 +29,19 @@ app.post('/arrays', jsonParser, (req, res) => {
       "result": counter
     }
     res.send(JSON.stringify(result));
+    /*
   } else if (what === "double") {
     let numbers = [];
     for(let index = 0; index < numbers.length; index++) {
-      numbers = numbers.push(numbers[index] * numbers[index]);
+      let doubleNumbers = numbers[index] * numbers[index];
+      console.log(doubleNumbers);
+      numbers = numbers.push(doubleNumbers);
     }
     let result = {
       result: numbers
     }
     res.send(JSON.stringify(result));
+    */
   } else {
     let noRes = {
       "error": "Please provide what to do with the numbers!"
