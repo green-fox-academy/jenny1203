@@ -1,0 +1,26 @@
+body{
+  background-image: linear-gradient(to right, #dbdbdb, #dedede, #dbdbdb);
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+}
+
+#container {
+  width: 500px;
+  height: 350px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 5px 8px #bfbdbd;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  background-color: turquoise;
+  border: 0px;
+  margin: 5px;
+}
+
+#link {
+  margin: 10px;
+}
