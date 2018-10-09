@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+  <script src="index.js"></script>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <!-- <tr>
+        <td><p id="text">Valami</p></td>
+        <td><button id='edit'>Edit</button></td>
+      </tr> -->
+    </tbody>
+  </table>
+  <form action="/add" method="POST"> <!-- urlt be kell irni az actionba -->
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" name="name" id="name">
+    <br>
+    <label for="password">Password:</label>
+    <br>
+    <input type="password" name="password" id="password">
+    <br>
+    <button type="submit">Send!</button>
+  </form>
+</body>
+</html>
