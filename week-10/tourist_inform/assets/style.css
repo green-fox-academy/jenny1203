@@ -48,14 +48,13 @@ td {
   padding-top: 20px; 
   background: linear-gradient(45deg, #49a09d, #5f2c82);
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  width: 870px;
-  height: 650px;
+  width: 500px;
+  height: 750px;
   margin: 50px auto;
-  position: relative;
 }
 
 #centerHolder {
-  margin: auto;
+  padding: 40px;
 }
 
 label {
@@ -75,6 +74,19 @@ input[type=text], select {
 
 input[type=text]:focus {
   background-color: rgba(255,255,255,0.7);
+}
+
+button {
+  color: rgb(255,255,255);
+  background-color: #55608f;
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #434c72;
 }
 
 #submit {

@@ -72,12 +72,13 @@ window.onload = () => {
 
   drawTable();
 
-
+  /*
   //refresh with button
   let refreshButton = document.querySelector('#refreshButton');
   refreshButton.addEventListener('click', () => {
     location.reload();
   });
+  */
 
   //submit with event listener
   let button = document.querySelector("#submit");
