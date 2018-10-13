@@ -25,7 +25,7 @@ mySqlConn.connect((error) => {
     console.log(error);
   } else {
     console.log('working');
-  }
+  };
 });
 
 app.get('/', (req, res) => {
@@ -77,18 +77,33 @@ app.get('/a/:alias', (req, res) => {
   let aliasUrl = req.params.alias;
   if (aliasUrl) {
     mySqlConn.query('SELECT * FROM urlAliasingAppData WHERE alias=?;', [aliasUrl], (errSelect, respSelect) => {
-      if(respSelect.length === 0){
+      if (respSelect.length === 0) {
         console.log(errSelect);
         res.status(404).send();
       } else {
         console.log(respSelect[0].hitCount);
-        let hitCountAdd = respSelect[0].hitCount+1;
+        //update kell a msqlben
+        let hitCountAdd = respSelect[0].hitCount + 1;
         console.log(hitCountAdd);
+
+        mySqlConn.query('UPDATE urlAliasingAppData SET hitCount=? WHERE alias=?;', [hitCountAdd, aliasUrl], (updateErr, respErr) => {
+          if (updateErr) {
+            res.status(500).send();
+          } else {
+            res.status(200).send();
+          };
+        });
         res.status(200).redirect('/');
       };
     });
   };
 });
+
+/* 
+UPDATE Customers
+SET ContactName='Alfred Schmidt', City='Frankfurt'
+WHERE CustomerID=1;
+*/
 
 app.get('/api/links', (req, res) => {
   mySqlConn.query(`SELECT id, url, alias, hitCount FROM urlAliasingAppData;`, (selectErr, selectResp) => {
@@ -97,7 +112,7 @@ app.get('/api/links', (req, res) => {
       res.status(500).send();
     } else {
       res.status(200).json(selectResp);
-    }
+    };
   });
 });
 
@@ -106,24 +121,24 @@ app.delete('/api/links/:id', (req, res) => {
   let deletableId = req.params.id;
   if (secretCode) {
     mySqlConn.query(`SELECT * FROM urlAliasingAppData WHERE secretCode=?;`, [secretCode], (errDelete, resDelete) => {
-      if(resDelete.length === 0) {
+      if (resDelete.length === 0) {
         console.log('Nem egyezik')
         console.log(errDelete);
         res.status(403).send();
       } else {
         mySqlConn.query('DELETE FROM urlAliasingAppData WHERE id=?', [deletableId], (errorDelete, resDelete) => {
-          if(errorDelete){
+          if (errorDelete) {
             res.status(500).send();
           } else {
             res.status(204).send();
-          }
+          };
         });
-      }
+      };
     });
   } else {
     console.log('No secret');
     res.status(404).send();
-  }
+  };
 });
 
 app.listen(PORT, () => {
