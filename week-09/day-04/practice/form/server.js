@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const path = require('path');
 const assets = express.static('assets');
 
-const PORT = 3000;
+const PORT = 3450;
 const app = express();
 
 app.use(jsonParser);
@@ -54,7 +54,7 @@ app.post('/add', (req, res) => {
         console.log(err);
         return;
       } else {
-        res.status(200).redirect('/');
+        res.status(200);
       }
     });
   }

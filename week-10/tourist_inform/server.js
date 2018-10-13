@@ -93,7 +93,7 @@ app.get('/budge', (req, res) => {
 app.delete('/delete/:id', (req, res) => {
   let deleteId = req.params.id;
   mySqlConn.query(`DELETE FROM attractions WHERE id=?`, [deleteId], (err, result) => {
-    if(err) {
+    if (err) {
       res.status(400).json({ err: 'hiba a deletben' });
       return;
     } else {
@@ -101,6 +101,58 @@ app.delete('/delete/:id', (req, res) => {
     };
   });
 });
+
+//delete all form same categorys
+app.delete(`/api/attractions`, (req, res) => {
+
+  if (req.body.category === 'restaurant' || req.body.category === 'museum' || req.body.category === 'park' && !null) {
+    mySqlConn.query(`DELETE FROM attractions WHERE category=?`, [req.body.category], (err, deletedCategory) => {
+      if (err) {
+        res.status(400).json(err);
+        return;
+      } else {
+        console.log(deletedCategory);
+        res.status(200).json({ category: req.body.category });
+        return;
+      };
+    });
+  } else {
+    res.status(400).json({ error: '404' });
+  };
+});
+
+
+
+//esztertől a delete 
+app.delete('/api/attractions', (req, res) => {
+  let cat = req.body.category;
+  if (cat) {
+    conn.query(`SELECT * FROM attractions WHERE category = ?;`, [cat], (error, result) => {
+      console.log(result);
+      if (result.length === 0) {
+        console.log('Egyik hibalehetőség.');
+        res.status(404).send();
+        return;
+      } else {
+        console.log('egyik');
+        conn.query(`DELETE FROM attractions WHERE category = ?;`, [cat], (error, deletedCategory) => {
+          console.log('masik');
+          if (error) {
+            console.log(error);
+            res.status(404).send();
+            return;
+          } else {
+            res.status(200).json({
+              category: cat
+            });
+          }
+        }); //conn.query delete vége
+      }
+    }); //conn.query select vége
+  }
+});
+//delete endpoint vége
+
 
 app.listen(PORT, () => {
   console.log(`The app is runing on port ${PORT}`);

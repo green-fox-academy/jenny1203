@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000';
+const URL = 'http://localhost:3450';
 window.onload = () => {
 
   const tbody = document.querySelector('#tbody');
@@ -36,15 +36,21 @@ window.onload = () => {
     });
 
   // form send button, hogy küldje el a mysql tábában
-  const data = { name: name.value, password: password.value }
-  fetch(`${URL}/add`, {
-    method: 'post',
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify(data)
-  }).then((res) => res.json())
-    .then(res => {
-      console.log('succes:', JSON.stringify(res));
-    });
+  let button = document.querySelector('#submit');
+  button.addEventListener('click', () => {
+    let name = document.querySelector("#name");
+    let password = document.querySelector('#password');
+    const data = { name: name.value, password: password.value }
+    fetch(`${URL}/add`, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(data)
+    }).then((res) => res.json())
+      .then(res => {
+        console.log('succes:', JSON.stringify(res));
+
+      });
+  })
 };
