@@ -50,7 +50,7 @@ app.post('/api/links', (req, res) => {
           } else {
             let id = resInsert.insertId;
             mySqlConn.query(`SELECT * FROM urlAliasingAppData WHERE id=?`, [id], (idErr, idRes) => {
-              if(idErr) {
+              if (idErr) {
                 console.log(idErr);
                 res.status(500).send();
                 return;
@@ -68,8 +68,63 @@ app.post('/api/links', (req, res) => {
     });
   };
 });
+// If the alias exists it should increment the 
+//hit count and redirect to
+// the URL otherwise respond with 404 status code
 
+//redirect
+app.get('/a/:alias', (req, res) => {
+  let aliasUrl = req.params.alias;
+  if (aliasUrl) {
+    mySqlConn.query('SELECT * FROM urlAliasingAppData WHERE alias=?;', [aliasUrl], (errSelect, respSelect) => {
+      if(respSelect.length === 0){
+        console.log(errSelect);
+        res.status(404).send();
+      } else {
+        console.log(respSelect[0].hitCount);
+        let hitCountAdd = respSelect[0].hitCount+1;
+        console.log(hitCountAdd);
+        res.status(200).redirect('/');
+      };
+    });
+  };
+});
 
+app.get('/api/links', (req, res) => {
+  mySqlConn.query(`SELECT id, url, alias, hitCount FROM urlAliasingAppData;`, (selectErr, selectResp) => {
+    if (selectErr) {
+      console.log(selectErr);
+      res.status(500).send();
+    } else {
+      res.status(200).json(selectResp);
+    }
+  });
+});
+
+app.delete('/api/links/:id', (req, res) => {
+  let secretCode = req.body.secretCode;
+  let deletableId = req.params.id;
+  if (secretCode) {
+    mySqlConn.query(`SELECT * FROM urlAliasingAppData WHERE secretCode=?;`, [secretCode], (errDelete, resDelete) => {
+      if(resDelete.length === 0) {
+        console.log('Nem egyezik')
+        console.log(errDelete);
+        res.status(403).send();
+      } else {
+        mySqlConn.query('DELETE FROM urlAliasingAppData WHERE id=?', [deletableId], (errorDelete, resDelete) => {
+          if(errorDelete){
+            res.status(500).send();
+          } else {
+            res.status(204).send();
+          }
+        });
+      }
+    });
+  } else {
+    console.log('No secret');
+    res.status(404).send();
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`The app is runing on port ${PORT}`);
