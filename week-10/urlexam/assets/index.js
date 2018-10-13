@@ -19,13 +19,21 @@ window.onload = () => {
       body: JSON.stringify(values)
     }).then((res) => res.json())
       .then(res => {
-        console.log(JSON.stringify(res[0]));
-        let title = document.querySelector('#title');
-        title.innerText = 'Succes'
-        let paragraph = document.querySelector('#resultParagraph');
-        paragraph.innerText = `Your URL is alies to ${res[0].alias} and your secret code is ${res[0].secretCode}`;
-        url.value = '';
-        alias.value = '';
-      });
+      console.log(JSON.stringify(res[0]));
+      let title = document.querySelector('#title');
+      title.innerText = 'Succes'
+      let paragraph = document.querySelector('#resultParagraph');
+      paragraph.innerText = `Your URL is alies to ${res[0].alias} and your secret code is ${res[0].secretCode}`;
+      url.value = '';
+      alias.value = '';
+    })
+    .catch(error => {
+      console.log(error);
+      let title = document.querySelector('#title');
+      title.innerText = 'Error'
+      let paragraph = document.querySelector('#resultParagraph');
+      paragraph.style.color = 'red';
+      paragraph.innerText = `Your alias is already in use`;
+    });
   });
 };
