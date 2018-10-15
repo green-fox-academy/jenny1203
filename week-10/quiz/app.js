@@ -35,44 +35,55 @@ app.get('/', (req, res) => {
 });
 
 app.get('/game', (req, res) => {
-  let randomId = Math.floor(Math.random() * 10) + 1;
-  mySqlConn.query('SELECT * FROM questions INNER JOIN answers ON questions.id=answers.question_id WHERE questions.id=?;', [randomId], (error, result) => {
-    if (error) {
-      console.log(error);
+
+  mySqlConn.query('SELECT id FROM questions ORDER BY RAND() LIMIT 1;', (errorRandom, resultRandom) => {
+    if (errorRandom) {
+      console.log(errorRandom);
       res.status(500).send();
     } else {
-      res.status(200).json({
-        "id": randomId,
-        "question": result[0].question,
-        "answers": [
-          {
-            "question_id": randomId,
-            "id": result[0].id,
-            "answer_1": result[0].answer,
-            "is_correct": result[0].is_correct
-          },
-          {
-            "question_id": randomId,
-            "id": result[1].id,
-            "answer_1": result[1].answer,
-            "is_correct": result[1].is_correct
-          },
-          {
-            "question_id": randomId,
-            "id": result[2].id,
-            "answer_1": result[2].answer,
-            "is_correct": result[2].is_correct
-          },
-          {
-            "question_id": randomId,
-            "id": result[3].id,
-            "answer_1": result[3].answer,
-            "is_correct": result[3].is_correct
-          }
-        ]
+      console.log(resultRandom[0].id);
+      let randomId = resultRandom[0].id;
+      mySqlConn.query('SELECT * FROM questions INNER JOIN answers ON questions.id=answers.question_id WHERE questions.id=?;', [randomId], (error, result) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send();
+        } else {
+          res.status(200).json({
+            "id": randomId,
+            "question": result[0].question,
+            "answers": [
+              {
+                "question_id": randomId,
+                "id": result[0].id,
+                "answer": result[0].answer,
+                "is_correct": result[0].is_correct
+              },
+              {
+                "question_id": randomId,
+                "id": result[1].id,
+                "answer": result[1].answer,
+                "is_correct": result[1].is_correct
+              },
+              {
+                "question_id": randomId,
+                "id": result[2].id,
+                "answer": result[2].answer,
+                "is_correct": result[2].is_correct
+              },
+              {
+                "question_id": randomId,
+                "id": result[3].id,
+                "answer": result[3].answer,
+                "is_correct": result[3].is_correct
+              }
+            ]
+          });
+        };
       });
     };
   });
+  //let randomId = Math.floor(Math.random() * 10) + 1;
+
 });
 
 app.get('/questions', (req, res) => {
@@ -102,11 +113,11 @@ app.post('/questions', (req, res) => {
       } else {
         console.log(result);
 
-        let questionId= result.insertId;
+        let questionId = result.insertId;
         console.log(questionId);
-        
-        mySqlConn.query('INSERT INTO answers(question_id, answer,is_correct) VALUES(?,?,?),(?,?,?),(?,?,?),(?,?,?);', [questionId, answerOne, isCorrect, questionId, answerTwo,isCorrect, questionId, answerThree, isCorrect, questionId, answerFour,isCorrect], (Inserterror, Insertresult) => {
-          if(Inserterror) {
+
+        mySqlConn.query('INSERT INTO answers(question_id, answer,is_correct) VALUES(?,?,?),(?,?,?),(?,?,?),(?,?,?);', [questionId, answerOne, isCorrect, questionId, answerTwo, isCorrect, questionId, answerThree, isCorrect, questionId, answerFour, isCorrect], (Inserterror, Insertresult) => {
+          if (Inserterror) {
             console.log(Inserterror);
             res.status(500).send;
           } else {
@@ -116,19 +127,19 @@ app.post('/questions', (req, res) => {
         });
       };
     });
-  } 
+  };
 });
 
 app.delete('/questions/:id', (req, res) => {
   let deletableId = req.params.id;
-  if(deletableId) {
+  if (deletableId) {
     mySqlConn.query(`DELETE FROM questions WHERE id=?;`, [deletableId], (error, result) => {
-      if(error) {
+      if (error) {
         console.log(error);
         res.status(500).send();
       } else {
         mySqlConn.query(`DELETE FROM answers WHERE question_id=?;`, [deletableId], (error, result) => {
-          if(error) {
+          if (error) {
             console.log(error);
             res.send(500).send();
           } else {
