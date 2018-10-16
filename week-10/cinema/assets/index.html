@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cinema Booking System</title>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Cinema Booking System</h1>
+  <form>
+
+    <label for="name">Name</label>
+    <br>
+    <input type="text" name="name" id="name" required>
+    <br>
+    <label for="phone">Phone Number</label>
+    <br>
+    <input type="tel" name="phone" id="phone" required>
+    <br>
+    <fieldset>
+      <legend>Movie</legend>
+      <input type="radio" name="movies" class="answerCheck" value="Alpha">
+      <label for="alpha">Alpha</label>
+      <br>
+      <input type="radio" name="movies" class="answerCheck" value="A simple Favor">
+      <label for="simpleFavor">A simple Favor</label>
+      <br>
+      <input type="radio" name="movies" class="answerCheck" value="A star in born">
+      <label for="star">A star in born</label>
+      <br>
+      <input type="radio" name="movies" class="answerCheck" value="Bad Times At The El Royale">
+      <label for="badTimes">Bad Times At The El Royale</label>
+      <br>
+      <input type="radio" name="movies" class="answerCheck" value="Black Swan">
+      <label for="blackSwan">Black Swan</label>
+      <br>
+      <input type="radio" name="movies" class="answerCheck" value="Blue My Mind">
+      <label for="mind">Blue My Mind</label>
+      <br>
+    </fieldset>
+    <input type="checkbox" name="glasses" id="glasses">
+    <label for="glasses">Include 3D glasses (+300Ft)</label>
+    <br>
+
+    <button type="button" id="submit">Submit</button>
+  </form>
+</body>
+
+</html>
