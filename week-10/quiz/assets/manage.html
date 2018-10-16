@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <h2>Manage questions</h2>
-
-  <h2>Create new question</h2>
-  <form action="">
-    <input type="text" placeholder="Type your question here">
-    <h3>Answers</h3>
-    <label for="">#1</label>
-    <input type="text" name="" id="" placeholder="Type your answere here">
-    <input type="radio" name="" id="">
-    <br>
-    <label for="">#2</label>
-    <input type="text" name="" id="" placeholder="Type your answere here">
-    <input type="radio" name="" id="">
-    <br>
-    <label for="">#3</label>
-    <input type="text" name="" id="" placeholder="Type your answere here">
-    <input type="radio" name="" id="">
-    <br>
-    <label for="">#4</label>
-    <input type="text" name="" id="" placeholder="Type your answere here">
-    <input type="radio" name="" id="">
-    <br>
-    <button>submit</button>
-  </form>
-  <a href="index.html">Go back to the game</a>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="manage.js"></script>
+  </head>
+  <body>
+    <h2>Manage questions</h2>
+    <div id="container"></div>
+  
+    <h2>Create new question</h2>
+    <form action="">
+      <input type="text" placeholder="Type your question here" id="question">
+      <h3>Answers</h3>
+      <label for="">#1</label>
+      <input type="text" name="answer" id="answerOne" placeholder="Type your answere here">
+      <input type="radio" name="answer" class="answerCheck" value="1" checked="checked">
+      <br>
+      <label for="">#2</label>
+      <input type="text" name="answer" id="answerTwo" placeholder="Type your answere here">
+      <input type="radio" name="answer" class="answerCheck" value="2">
+      <br>
+      <label for="">#3</label>
+      <input type="text" name="answer" id="answerThree" placeholder="Type your answere here">
+      <input type="radio" name="answer" class="answerCheck" value="3">
+      <br>
+      <label for="">#4</label>
+      <input type="text" name="answer" id="answerFour" placeholder="Type your answere here">
+      <input type="radio" name="answer" class="answerCheck" value="4">
+      <br>
+      <button type="button" id="submit">submit</button>
+    </form>
+    <a href="http://localhost:8080/">Go back to the game</a>
+  </body>
 </html>

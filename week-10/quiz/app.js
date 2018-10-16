@@ -41,7 +41,7 @@ app.get('/game', (req, res) => {
       console.log(errorRandom);
       res.status(500).send();
     } else {
-      console.log(resultRandom[0].id);
+      //let randomId = Math.floor(Math.random() * 10) + 1;
       let randomId = resultRandom[0].id;
       mySqlConn.query('SELECT * FROM questions INNER JOIN answers ON questions.id=answers.question_id WHERE questions.id=?;', [randomId], (error, result) => {
         if (error) {
@@ -82,17 +82,18 @@ app.get('/game', (req, res) => {
       });
     };
   });
-  //let randomId = Math.floor(Math.random() * 10) + 1;
-
 });
 
 app.get('/questions', (req, res) => {
+  res.sendFile(path.join(__dirname, "/assets/manage.html"));
+});
+
+app.get('/api/questions', (req, res) => {
   mySqlConn.query('SELECT * FROM questions;', (error, result) => {
     if (error) {
       console.log(error);
       res.status(500).send();
     } else {
-      console.log(result);
       res.status(200).json(result);
     };
   });
@@ -104,25 +105,24 @@ app.post('/questions', (req, res) => {
   let answerTwo = req.body.answerTwo;
   let answerThree = req.body.answerThree;
   let answerFour = req.body.answerFour;
-  let isCorrect = req.body.isCorrect;
+  let answerCheck = req.body.answerCheck;
+  let isCorrect = [0,0,0,0];
+  isCorrect[answerCheck-1] = 1;
   if (question && answerOne && answerTwo && answerThree && answerFour) {
     mySqlConn.query('INSERT INTO questions(question) VALUES(?);', [question], (error, result) => {
       if (error) {
         console.log(error);
         res.status(500).send();
       } else {
-        console.log(result);
-
         let questionId = result.insertId;
-        console.log(questionId);
 
-        mySqlConn.query('INSERT INTO answers(question_id, answer,is_correct) VALUES(?,?,?),(?,?,?),(?,?,?),(?,?,?);', [questionId, answerOne, isCorrect, questionId, answerTwo, isCorrect, questionId, answerThree, isCorrect, questionId, answerFour, isCorrect], (Inserterror, Insertresult) => {
+        mySqlConn.query('INSERT INTO answers(question_id, answer,is_correct) VALUES(?,?,?),(?,?,?),(?,?,?),(?,?,?);', [questionId, answerOne, isCorrect[0], questionId, answerTwo, isCorrect[1], questionId, answerThree, isCorrect[2], questionId, answerFour, isCorrect[3]], (Inserterror, Insertresult) => {
           if (Inserterror) {
             console.log(Inserterror);
             res.status(500).send;
           } else {
-            console.log(Insertresult);
-            res.status(200).send();
+            console.log(req.body);
+            res.status(200).json(req.body);
           };
         });
       };
@@ -144,7 +144,7 @@ app.delete('/questions/:id', (req, res) => {
             res.send(500).send();
           } else {
             console.log(result);
-            res.send(200).send();
+            res.status(200).json(result);
           };
         });
       };
