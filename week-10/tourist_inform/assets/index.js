@@ -33,15 +33,7 @@ window.onload = () => {
 
           editButtons.addEventListener('click', (event) => {
             event.preventDefault();
-
-            attrName.value = response[index].attr_name;
-            city.value = response[index].city;
-            price.value = response[index].price;
-            longitude.value = response[index].longitude;
-            latitude.value = response[index].latitude;
-            category.value = response[index].category;
-            duration.value = response[index].duration;
-            recomendedAge.value = response[index].recommended_age;
+            fillFormEditor(response[index]);
           });
 
           deleteButtons.addEventListener('click', (event) => {
@@ -68,6 +60,17 @@ window.onload = () => {
           tbody.appendChild(tableRow);
         };
       });
+  }
+
+  function fillFormEditor(elem) {
+    attrName.value = elem.attr_name;
+    city.value = elem.city;
+    price.value = elem.price;
+    longitude.value = elem.longitude;
+    latitude.value = elem.latitude;
+    category.value = elem.category;
+    duration.value = elem.duration;
+    recomendedAge.value = elem.recommended_age;
   }
 
   drawTable();

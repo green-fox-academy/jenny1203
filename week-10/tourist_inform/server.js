@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/attractions', (req, res) => {
+ 
   mySqlConn.query(`SELECT * FROM attractions;`, (err, attractions) => {
     if (err) {
       res.status(400).json({ err: 'hiba' });
@@ -44,6 +45,7 @@ app.get('/attractions', (req, res) => {
       res.status(200).json(attractions);
     }
   });
+  
 });
 
 app.post('/add', (req, res) => {
